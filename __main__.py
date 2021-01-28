@@ -1,4 +1,4 @@
-import pygame, time, settings, controller, view
+import pygame, time, settings, controller, view, model
 pygame.init()
 
 
@@ -9,3 +9,6 @@ while True:
     view.create_screen()
 
     controller.events()
+
+    view.ship_drawing()
+
