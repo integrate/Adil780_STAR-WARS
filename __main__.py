@@ -10,9 +10,10 @@ while True:
 
     model.move_enemy_down()
 
-
+    model.bullet_movement()
 
     view.create_screen()
 
-    view.ship_drawing()
+
+    view.drawing()
 

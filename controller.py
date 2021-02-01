@@ -13,5 +13,9 @@ def events():
                 model.move_ship_right()
             if i.key == pygame.K_LEFT:
                 model.move_ship_left()
+        if i.type == pygame.MOUSEBUTTONDOWN:
+            if i.button == 1:
+                model.bullet_creation()
+
 
 
