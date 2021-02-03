@@ -1,8 +1,9 @@
-import pygame, settings, random
+import pygame, settings, random, view
 
 pygame.init()
 
-bullet = None
+left_bullet = None
+right_bullet = None
 
 ship = pygame.Rect(settings.SCREEN_WIDTH / 2, 650, 101, 110)
 ship.centerx = settings.SCREEN_WIDTH / 2
@@ -15,17 +16,20 @@ basespeed = 10
 speedx = basespeed
 speedy = basespeed
 
+bullets = []
 
-def bullet_creation():
-    global bullet
-    bullets = []
-    bullet = pygame.Rect(ship.left, ship.top, 5, 5)
+def right_bullet_creation():
+    right_bullet = pygame.Rect(ship.right, ship.top, 3, 20)
+    bullets.append(right_bullet)
 
-def bullet_movement():
-    if bullet is not None:
-        bullet.y -= speedy
+def left_bullet_creation():
+    left_bullet = pygame.Rect(ship.left, ship.top, 3, 20)
+    bullets.append(left_bullet)
 
-
+def bullets_movement():
+    for i in bullets:
+        basespeed = 8
+        i.y -= basespeed
 
 def move_ship_right():
     ship.x += 10

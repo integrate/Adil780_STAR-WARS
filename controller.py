@@ -9,13 +9,15 @@ def events():
             exit()
 
         if i.type == pygame.KEYDOWN:
-            if i.key == pygame.K_RIGHT:
+            if i.key == pygame.K_d:
                 model.move_ship_right()
-            if i.key == pygame.K_LEFT:
+            if i.key == pygame.K_a:
                 model.move_ship_left()
         if i.type == pygame.MOUSEBUTTONDOWN:
             if i.button == 1:
-                model.bullet_creation()
+                model.left_bullet_creation()
+
+                model.right_bullet_creation()
 
 
 

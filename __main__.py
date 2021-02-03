@@ -10,10 +10,9 @@ while True:
 
     model.move_enemy_down()
 
-    model.bullet_movement()
+    model.bullets_movement()
 
     view.create_screen()
-
 
     view.drawing()
 
