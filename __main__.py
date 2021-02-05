@@ -3,6 +3,7 @@ pygame.init()
 
 
 
+
 while True:
     time.sleep(1/60)
 
@@ -11,6 +12,8 @@ while True:
     model.move_enemy_down()
 
     model.bullets_movement()
+
+
 
     view.create_screen()
 

@@ -1,8 +1,11 @@
 import pygame, model
 pygame.init()
 
+TIMER_ID = pygame.event.custom_type()
+pygame.time.set_timer(TIMER_ID, 1000, 0)
 pygame.key.set_repeat(20)
 def events():
+
     t = pygame.event.get()
     for i in t:
         if i.type == pygame.QUIT:
@@ -18,6 +21,12 @@ def events():
                 model.left_bullet_creation()
 
                 model.right_bullet_creation()
+
+        if i.type == TIMER_ID:
+            model.create_enemy()
+
+
+
 
 
 

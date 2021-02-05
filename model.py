@@ -8,15 +8,14 @@ right_bullet = None
 ship = pygame.Rect(settings.SCREEN_WIDTH / 2, 650, 101, 110)
 ship.centerx = settings.SCREEN_WIDTH / 2
 
-enemy_ship = pygame.Rect(random.randint(0, settings.SCREEN_WIDTH - 101), 5, 101, 110)
-
-enemy = []
-
+round = 1
 basespeed = 10
 speedx = basespeed
 speedy = basespeed
 
+enemy = []
 bullets = []
+
 
 def right_bullet_creation():
     right_bullet = pygame.Rect(ship.right, ship.top, 3, 20)
@@ -43,7 +42,14 @@ def move_ship_left():
         ship.left = 0
 
 
+def create_enemy():
+    global enemy_ship
+    enemy_ship = pygame.Rect(random.randint(0, settings.SCREEN_WIDTH - 101), 5, 101, 110)
+    enemy.append(enemy_ship)
+    print(len(enemy))
+
 def move_enemy_down():
     global basespeed
-    basespeed = 3
-    enemy_ship.y += speedy
+    for i in enemy:
+        basespeed = 3
+        i.y += speedy
