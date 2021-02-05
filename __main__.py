@@ -9,11 +9,7 @@ while True:
 
     controller.events()
 
-    model.move_enemy_down()
-
-    model.bullets_movement()
-
-
+    model.model()
 
     view.create_screen()
 

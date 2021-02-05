@@ -46,10 +46,22 @@ def create_enemy():
     global enemy_ship
     enemy_ship = pygame.Rect(random.randint(0, settings.SCREEN_WIDTH - 101), 5, 101, 110)
     enemy.append(enemy_ship)
-    print(len(enemy))
+    print(len(bullets))
 
 def move_enemy_down():
     global basespeed
     for i in enemy:
         basespeed = 3
         i.y += speedy
+
+def collide_bullet_enemy():
+    for i in enemy.copy():
+        a = i.collidelist(bullets)
+        if a > -1:
+            enemy.remove(i)
+            del bullets[a]
+
+def model():
+    move_enemy_down()
+    bullets_movement()
+    collide_bullet_enemy()

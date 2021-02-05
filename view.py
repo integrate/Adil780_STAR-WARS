@@ -19,7 +19,7 @@ def draw_bullets():
 
 def draw_enemies():
     for i in model.enemy:
-        pygame.draw.rect(screen, [255, 255, 255], i, 2)
+        #pygame.draw.rect(screen, [255, 255, 255], i, 2)
         screen.blit(tie, i)
 
 def drawing():
