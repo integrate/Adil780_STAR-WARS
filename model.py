@@ -5,7 +5,7 @@ pygame.init()
 left_bullet = None
 right_bullet = None
 
-ship = pygame.Rect(settings.SCREEN_WIDTH / 2, 650, 101, 110)
+ship = pygame.Rect(settings.SCREEN_WIDTH / 2, settings.SCREEN_HEIGHT - 150, 101, 110)
 ship.centerx = settings.SCREEN_WIDTH / 2
 
 round = 1

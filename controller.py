@@ -20,7 +20,9 @@ def events():
             if i.button == 1:
                 model.left_bullet_creation()
 
+            if i.button == 3:
                 model.right_bullet_creation()
+
 
         if i.type == TIMER_ID:
             model.create_enemy()
