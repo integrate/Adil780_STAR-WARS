@@ -19,11 +19,21 @@ bullets = []
 
 def right_bullet_creation():
     right_bullet = pygame.Rect(ship.right, ship.top, 3, 20)
-    bullets.append(right_bullet)
+    if len(bullets) < 10:
+        bullets.append(right_bullet)
 
 def left_bullet_creation():
     left_bullet = pygame.Rect(ship.left, ship.top, 3, 20)
-    bullets.append(left_bullet)
+    if len(bullets) < 10:
+        bullets.append(left_bullet)
+
+def bullet_remove():
+    for i in bullets:
+        if i.y <= 0:
+            bullets.remove(i)
+
+
+
 
 def bullets_movement():
     for i in bullets:
@@ -65,3 +75,5 @@ def model():
     move_enemy_down()
     bullets_movement()
     collide_bullet_enemy()
+    bullet_remove()
+    print(len(bullets))
