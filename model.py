@@ -19,12 +19,12 @@ bullets = []
 
 def right_bullet_creation():
     right_bullet = pygame.Rect(ship.right, ship.top, 3, 20)
-    if len(bullets) < 10:
+    if len(bullets) < 5:
         bullets.append(right_bullet)
 
 def left_bullet_creation():
     left_bullet = pygame.Rect(ship.left, ship.top, 3, 20)
-    if len(bullets) < 10:
+    if len(bullets) < 5:
         bullets.append(left_bullet)
 
 def bullet_remove():
@@ -37,7 +37,7 @@ def bullet_remove():
 
 def bullets_movement():
     for i in bullets:
-        basespeed = 8
+        basespeed = 15
         i.y -= basespeed
 
 def move_ship_right():
@@ -45,6 +45,12 @@ def move_ship_right():
     if ship.right >= settings.SCREEN_WIDTH:
         ship.right = settings.SCREEN_WIDTH
 
+def move_ship_to(posx):
+    ship.centerx = posx
+    if ship.right >= settings.SCREEN_WIDTH:
+        ship.right = settings.SCREEN_WIDTH
+    if ship.left <= 0:
+        ship.left = 0
 
 def move_ship_left():
     ship.x -= 10

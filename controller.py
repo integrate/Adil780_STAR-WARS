@@ -11,6 +11,10 @@ def events():
         if i.type == pygame.QUIT:
             exit()
 
+        if i.type == pygame.MOUSEMOTION:
+            a = i.pos[0]
+            model.move_ship_to(a)
+
         if i.type == pygame.KEYDOWN:
             if i.key == pygame.K_d:
                 model.move_ship_right()
