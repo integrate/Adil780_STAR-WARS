@@ -8,7 +8,10 @@ right_bullet = None
 ship = pygame.Rect(settings.SCREEN_WIDTH / 2, settings.SCREEN_HEIGHT - 150, 101, 110)
 ship.centerx = settings.SCREEN_WIDTH / 2
 
-round = 1
+platform = pygame.Rect(0, settings.SCREEN_HEIGHT - 40, settings.SCREEN_WIDTH, 40)
+
+
+platform_hp = 100
 basespeed = 10
 speedx = basespeed
 speedy = basespeed
@@ -32,9 +35,6 @@ def bullet_remove():
         if i.y <= 0:
             bullets.remove(i)
 
-
-
-
 def bullets_movement():
     for i in bullets:
         basespeed = 15
@@ -42,20 +42,22 @@ def bullets_movement():
 
 def move_ship_right():
     ship.x += 10
+    correct_borders()
+
+def correct_borders():
     if ship.right >= settings.SCREEN_WIDTH:
         ship.right = settings.SCREEN_WIDTH
+    if ship.left <= 0:
+        ship.left = 0
 
 def move_ship_to(posx):
     ship.centerx = posx
-    if ship.right >= settings.SCREEN_WIDTH:
-        ship.right = settings.SCREEN_WIDTH
-    if ship.left <= 0:
-        ship.left = 0
+    correct_borders()
+
 
 def move_ship_left():
     ship.x -= 10
-    if ship.left <= 0:
-        ship.left = 0
+    correct_borders()
 
 
 def create_enemy():
@@ -77,9 +79,23 @@ def collide_bullet_enemy():
             enemy.remove(i)
             del bullets[a]
 
+
+def collide_platform_enemy():
+    global platform_hp
+    a = platform.collidelistall(enemy)
+    for i in a:
+        b = enemy[i]
+        enemy.remove(b)
+        platform_hp -= 25
+
+
+
+
+
 def model():
     move_enemy_down()
     bullets_movement()
     collide_bullet_enemy()
     bullet_remove()
+    collide_platform_enemy()
     print(len(bullets))

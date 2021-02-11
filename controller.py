@@ -15,6 +15,7 @@ def events():
             a = i.pos[0]
             model.move_ship_to(a)
 
+
         if i.type == pygame.KEYDOWN:
             if i.key == pygame.K_d:
                 model.move_ship_right()

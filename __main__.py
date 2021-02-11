@@ -1,7 +1,7 @@
 import pygame, time, settings, controller, view, model
 pygame.init()
 
-
+view.create_screen()
 
 
 while True:
@@ -10,8 +10,6 @@ while True:
     controller.events()
 
     model.model()
-
-    view.create_screen()
 
     view.drawing()
 
