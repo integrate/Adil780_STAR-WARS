@@ -1,8 +1,10 @@
 import pygame, model
 pygame.init()
 
-TIMER_ID = pygame.event.custom_type()
-pygame.time.set_timer(TIMER_ID, 1000, 0)
+TIMER_ID_ENEMY = pygame.event.custom_type()
+TIMER_ID_METEORITE = pygame.event.custom_type()
+pygame.time.set_timer(TIMER_ID_ENEMY, 1000, 0)
+pygame.time.set_timer(TIMER_ID_METEORITE, 1000, 0)
 pygame.key.set_repeat(20)
 def events():
 
@@ -29,8 +31,10 @@ def events():
                 model.right_bullet_creation()
 
 
-        if i.type == TIMER_ID:
+        if i.type == TIMER_ID_ENEMY:
             model.create_enemy()
+        if i.type == TIMER_ID_METEORITE:
+            model.create_meteorite()
 
 
 

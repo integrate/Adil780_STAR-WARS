@@ -11,14 +11,19 @@ ship.centerx = settings.SCREEN_WIDTH / 2
 platform = pygame.Rect(0, settings.SCREEN_HEIGHT - 40, settings.SCREEN_WIDTH, 40)
 
 
+speedx = 10
+speedy = 10
+
+
 platform_hp = 100
-basespeed = 10
-speedx = basespeed
-speedy = basespeed
+
 
 enemy = []
 bullets = []
+meteorite = []
 
+
+#BULLET
 
 def right_bullet_creation():
     right_bullet = pygame.Rect(ship.right, ship.top, 3, 20)
@@ -40,8 +45,16 @@ def bullets_movement():
         basespeed = 15
         i.y -= basespeed
 
+
+
+#SHIP
+
 def move_ship_right():
     ship.x += 10
+    correct_borders()
+
+def move_ship_to(posx):
+    ship.centerx = posx
     correct_borders()
 
 def correct_borders():
@@ -50,15 +63,11 @@ def correct_borders():
     if ship.left <= 0:
         ship.left = 0
 
-def move_ship_to(posx):
-    ship.centerx = posx
-    correct_borders()
-
-
 def move_ship_left():
     ship.x -= 10
     correct_borders()
 
+#ENEMY
 
 def create_enemy():
     global enemy_ship
@@ -67,35 +76,54 @@ def create_enemy():
     print(len(bullets))
 
 def move_enemy_down():
-    global basespeed
+    global speedy
     for i in enemy:
-        basespeed = 3
+        speedy = 10
         i.y += speedy
 
-def collide_bullet_enemy():
-    for i in enemy.copy():
+#METEORITE
+
+def create_meteorite():
+    meteorit_e = pygame.Rect(random.randint(0, settings.SCREEN_WIDTH - 70), 5, 70, 70)
+    meteorite.append(meteorit_e)
+
+def move_meteorite_down():
+    global speedy, speedx
+    for i in meteorite:
+        speedx = random.randint(-5, 5)
+        speedy = random.randint(0, 5)
+        i.y += speedy
+        i.x += speedx
+
+#COLLIDE
+
+def collide_bullet_enemy(enemies):
+    for i in enemies.copy():
         a = i.collidelist(bullets)
         if a > -1:
-            enemy.remove(i)
+            enemies.remove(i)
             del bullets[a]
 
 
-def collide_platform_enemy():
+def collide_platform_enemy(enemies):
     global platform_hp
-    a = platform.collidelistall(enemy)
+    a = platform.collidelistall(enemies)
     for i in a:
-        b = enemy[i]
-        enemy.remove(b)
+        b = enemies[i]
+        enemies.remove(b)
         platform_hp -= 25
 
 
 
-
+#MODEL
 
 def model():
     move_enemy_down()
+    move_meteorite_down()
     bullets_movement()
-    collide_bullet_enemy()
+    collide_bullet_enemy(enemy)
+    collide_bullet_enemy(meteorite)
     bullet_remove()
-    collide_platform_enemy()
+    collide_platform_enemy(enemy)
+    collide_platform_enemy(meteorite)
     print(len(bullets))
