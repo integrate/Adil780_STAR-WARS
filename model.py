@@ -84,34 +84,54 @@ def move_enemy_down():
 #METEORITE
 
 def create_meteorite():
+    global speedy, speedx
     meteorit_e = pygame.Rect(random.randint(0, settings.SCREEN_WIDTH - 70), 5, 70, 70)
-    meteorite.append(meteorit_e)
+    m = {"rect":meteorit_e, "speedy":random.randint(1, 5), "speedx":random.randint(-5, 5)}
+    meteorite.append(m)
+    speedx = random.randint(-5, 5)
+    speedy = random.randint(1, 2)
+
 
 def move_meteorite_down():
     global speedy, speedx
     for i in meteorite:
-        speedx = random.randint(-5, 5)
-        speedy = random.randint(0, 5)
-        i.y += speedy
-        i.x += speedx
+        i["rect"].y += i["speedy"]
+        i["rect"].x += i["speedx"]
+
 
 #COLLIDE
 
-def collide_bullet_enemy(enemies):
-    for i in enemies.copy():
-        a = i.collidelist(bullets)
+def collide_bullet_meteorite():
+    for i in meteorite.copy():
+        a = i["rect"].collidelist(bullets)
         if a > -1:
-            enemies.remove(i)
+            meteorite.remove(i)
             del bullets[a]
 
 
-def collide_platform_enemy(enemies):
+def collide_bullet_enemy():
+    for i in enemy.copy():
+        a = i.collidelist(bullets)
+        if a > -1:
+            enemy.remove(i)
+            del bullets[a]
+
+def collide_platform_meteorite():
     global platform_hp
-    a = platform.collidelistall(enemies)
-    for i in a:
-        b = enemies[i]
-        enemies.remove(b)
+    for i in meteorite:
+        a = platform.colliderect(i["rect"])
+        if a == 1:
+            meteorite.remove(i)
+            platform_hp -= 25
+
+def collide_platform_enemy():
+    global platform_hp
+    a = platform.collidelistall(enemy)
+    for i in a.copy():
+        del enemy[i]
         platform_hp -= 25
+
+
 
 
 
@@ -121,9 +141,10 @@ def model():
     move_enemy_down()
     move_meteorite_down()
     bullets_movement()
-    collide_bullet_enemy(enemy)
-    collide_bullet_enemy(meteorite)
+    collide_bullet_enemy()
+    collide_bullet_meteorite()
     bullet_remove()
-    collide_platform_enemy(enemy)
-    collide_platform_enemy(meteorite)
+    collide_platform_meteorite()
+    collide_platform_enemy()
+    #collide_platform_enemy(meteorite)
     print(len(bullets))

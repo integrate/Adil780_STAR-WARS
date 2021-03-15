@@ -42,7 +42,7 @@ def draw_enemies():
         screen.blit(tie, i)
     for l in model.meteorite:
         #pygame.draw.rect(screen, [255, 255, 255], l, 2)
-        screen.blit(meteorite, l)
+        screen.blit(meteorite, l["rect"])
 
 def draw_platform():
     if model.platform_hp == 100:
@@ -57,6 +57,7 @@ def draw_platform():
 def drawn_explotion():
     explotion = pygame.image.load("images/EXPLOTION.png")
     screen.blit(explotion, [140, 100])
+
 
 def drawing():
     global screen, bullet

@@ -4,7 +4,7 @@ pygame.init()
 TIMER_ID_ENEMY = pygame.event.custom_type()
 TIMER_ID_METEORITE = pygame.event.custom_type()
 pygame.time.set_timer(TIMER_ID_ENEMY, 1000, 0)
-pygame.time.set_timer(TIMER_ID_METEORITE, 1000, 0)
+pygame.time.set_timer(TIMER_ID_METEORITE, 4000, 0)
 pygame.key.set_repeat(20)
 def events():
 
