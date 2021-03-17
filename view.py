@@ -1,6 +1,7 @@
 import pygame, settings, model
+pygame.init()
 
-
+letters = pygame.font.SysFont("arial", 40, True)
 
 
 bullet = pygame.image.load("images/bullet 2.png")
@@ -12,6 +13,8 @@ tie = pygame.image.load("images/TIE.png")
 tie = pygame.transform.scale(tie, [101, 110])
 tie = pygame.transform.rotate(tie, 180)
 background = pygame.image.load("images/background.jpg")
+coin = pygame.image.load("images/COIN.png")
+coin = pygame.transform.scale(coin, [50, 50])
 
 
 pl100 = pygame.image.load("images/Platform 100%.png")
@@ -54,9 +57,10 @@ def draw_platform():
     elif model.platform_hp == 25:
         screen.blit(pl25, [0, settings.SCREEN_HEIGHT - 40])
 
-def drawn_explotion():
-    explotion = pygame.image.load("images/EXPLOTION.png")
-    screen.blit(explotion, [140, 100])
+def create_coin():
+    coins = letters.render(str(model.coin), True, [255, 221, 0])
+    screen.blit(coin, (650, 5))
+    screen.blit(coins, [700, 5])
 
 
 def drawing():
@@ -67,7 +71,7 @@ def drawing():
     draw_enemies()
     draw_bullets()
     draw_platform()
-    drawn_explotion()
+    create_coin()
 
     pygame.display.flip()
 

@@ -2,6 +2,8 @@ import pygame, settings, random, view
 
 pygame.init()
 
+
+
 left_bullet = None
 right_bullet = None
 
@@ -10,13 +12,15 @@ ship.centerx = settings.SCREEN_WIDTH / 2
 
 platform = pygame.Rect(0, settings.SCREEN_HEIGHT - 40, settings.SCREEN_WIDTH, 40)
 
+letters = pygame.font.SysFont("arial", 40, True)
+
 
 speedx = 10
 speedy = 10
 
 
 platform_hp = 100
-
+coin = 0
 
 enemy = []
 bullets = []
@@ -110,11 +114,13 @@ def collide_bullet_meteorite():
 
 
 def collide_bullet_enemy():
+    global coin
     for i in enemy.copy():
         a = i.collidelist(bullets)
         if a > -1:
             enemy.remove(i)
             del bullets[a]
+            coin += 1
 
 def collide_platform_meteorite():
     global platform_hp
