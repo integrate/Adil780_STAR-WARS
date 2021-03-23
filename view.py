@@ -1,4 +1,4 @@
-import pygame, settings, model
+import pygame, settings, model, time
 pygame.init()
 
 letters = pygame.font.SysFont("arial", 40, True)
@@ -57,21 +57,33 @@ def draw_platform():
     elif model.platform_hp == 25:
         screen.blit(pl25, [0, settings.SCREEN_HEIGHT - 40])
 
+
+
 def create_coin():
     coins = letters.render(str(model.coin), True, [255, 221, 0])
     screen.blit(coin, (650, 5))
     screen.blit(coins, [700, 5])
 
+def game_over():
+    go = letters.render("GAME OVER", True, [255, 0, 0])
+    screen.blit(go, [settings.SCREEN_WIDTH/2, settings.SCREEN_HEIGHT/2])
 
 def drawing():
     global screen, bullet
-    screen.blit(background, [0, 0])
-    screen.blit(x_wing, model.ship)
+    if model.platform_hp > 0:
+        screen.blit(background, [0, 0])
+        draw_platform()
+        screen.blit(x_wing, model.ship)
 
-    draw_enemies()
-    draw_bullets()
-    draw_platform()
-    create_coin()
+
+        draw_enemies()
+        draw_bullets()
+
+        create_coin()
+
+    else:
+            screen.fill([0, 0, 0])
+            game_over()
 
     pygame.display.flip()
 

@@ -3,26 +3,21 @@ pygame.init()
 #pygame.mouse.set_visible(False)
 view.create_screen()
 
-mode = "MENU"
+
+while view_menu.mode == "MENU":
+    view_menu.create_screen()
+    view_menu.events()
 
 
-
-
-if mode == "MENU":
-    while True:
-        view_menu.create_screen()
-        controller_menu.events()
-
-
-
-
-if mode == "GAME":
+if view_menu.mode == "GAME":
     while True:
         time.sleep(1/60)
+
+        view.drawing()
 
         model.model()
 
         controller.events()
 
-        view.drawing()
+
 
