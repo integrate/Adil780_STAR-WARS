@@ -77,7 +77,6 @@ def create_enemy():
     global enemy_ship
     enemy_ship = pygame.Rect(random.randint(0, settings.SCREEN_WIDTH - 101), 5, 101, 110)
     enemy.append(enemy_ship)
-    print(len(bullets))
 
 def move_enemy_down():
     global speedy
@@ -138,7 +137,16 @@ def collide_platform_enemy():
         platform_hp -= 25
 
 
+def check_game():
+    if platform_hp <= 0:
+        return True
+    else:
+        return False
 
+def restart():
+    global platform_hp, coin
+    platform_hp = 100
+    coin = 0
 
 
 #MODEL
@@ -153,4 +161,3 @@ def model():
     collide_platform_meteorite()
     collide_platform_enemy()
     #collide_platform_enemy(meteorite)
-    print(len(bullets))

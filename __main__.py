@@ -4,20 +4,28 @@ pygame.init()
 view.create_screen()
 
 
-while view_menu.mode == "MENU":
-    view_menu.create_screen()
-    view_menu.events()
 
+while True:
+    time.sleep(1/60)
 
-if view_menu.mode == "GAME":
-    while True:
-        time.sleep(1/60)
-
+    if view_menu.mode == "MENU":
+        model.restart()
+        view_menu.create_screen()
+        view_menu.events()
+    else:
         view.drawing()
 
         model.model()
 
         controller.events()
+
+    if model.check_game() == True:
+        view_menu.mode = "MENU"
+
+
+
+
+
 
 
 

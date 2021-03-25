@@ -81,9 +81,11 @@ def drawing():
 
         create_coin()
 
+
     else:
             screen.fill([0, 0, 0])
             game_over()
+
 
     pygame.display.flip()
 
