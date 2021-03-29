@@ -1,4 +1,4 @@
-import pygame, time, settings, controller, view, model, view_menu, controller_menu
+import pygame, time, settings, controller, view, model, menu, store
 pygame.init()
 #pygame.mouse.set_visible(False)
 view.create_screen()
@@ -8,10 +8,17 @@ view.create_screen()
 while True:
     time.sleep(1/60)
 
-    if view_menu.mode == "MENU":
+    if menu.mode == "MENU":
         model.restart()
-        view_menu.create_screen()
-        view_menu.events()
+        menu.create_screen()
+        menu.events()
+
+    elif menu.mode == "STORE":
+        store.create_store_screen()
+        store.store_events()
+
+
+
     else:
         view.drawing()
 
@@ -20,7 +27,7 @@ while True:
         controller.events()
 
     if model.check_game() == True:
-        view_menu.mode = "MENU"
+        menu.mode = "MENU"
 
 
 
