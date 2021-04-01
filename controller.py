@@ -1,4 +1,4 @@
-import pygame, model
+import pygame, model, menu
 pygame.init()
 
 TIMER_ID_ENEMY = pygame.event.custom_type()
@@ -23,12 +23,16 @@ def events():
                 model.move_ship_right()
             if i.key == pygame.K_a:
                 model.move_ship_left()
+            if i.type == pygame.KEYDOWN:
+                if i.key == pygame.K_ESCAPE:
+                    menu.mode = "MENU"
         if i.type == pygame.MOUSEBUTTONDOWN:
             if i.button == 1:
                 model.left_bullet_creation()
 
             if i.button == 3:
                 model.right_bullet_creation()
+
 
 
         if i.type == TIMER_ID_ENEMY:
