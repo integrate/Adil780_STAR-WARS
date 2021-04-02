@@ -30,18 +30,25 @@ for i in skins.skins:
 
 
 
-def cretion_skins():
-    cordinatex = 50
-    cordinatey = 500
-    for p in skin:
-        cordinatex += 180
-        screen.blit(p, [cordinatex, cordinatey])
 
-    cordinatex = 20
-    cordinatey = 650
-    for k in price:
-        cordinatex += 180
-        screen.blit(k, [cordinatex, cordinatey])
+
+
+def cretion_skins():
+    skin_num = 0
+    price_num = 0
+    for y in range(50, settings.SCREEN_HEIGHT - 50, 250):
+        for f in range(50, settings.SCREEN_WIDTH - 50, 180):
+            if len(skin) <= skin_num:
+                return
+            skin_save = skin[skin_num]
+            screen.blit(skin_save, [f, y])
+            skin_num += 1
+            price_save = price[price_num]
+            screen.blit(price_save, [f - 30, y + 120])
+            price_num += 1
+
+
+
 
 
 def create_store_screen():
