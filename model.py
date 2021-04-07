@@ -146,7 +146,7 @@ def check_game():
 def restart():
     global platform_hp, coin
     platform_hp = 100
-    coin = 0
+
 
 
 #MODEL

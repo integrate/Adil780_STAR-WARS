@@ -1,7 +1,14 @@
-import pygame, time, settings, controller, view, model, menu, store
+import pygame, tkinter,  time, settings, controller, view, model, menu, store_view, store_controller, store
+
 pygame.init()
 #pygame.mouse.set_visible(False)
 view.create_screen()
+
+from tkinter import messagebox
+
+#messagebox.showwarning(message="Hello")
+#messagebox.askyesno(message="Hello")
+
 
 
 
@@ -14,8 +21,8 @@ while True:
         menu.events()
 
     elif menu.mode == "STORE":
-        store.create_store_screen()
-        store.store_events()
+        store_view.create_store_screen()
+        store_controller.store_events()
 
 
 
