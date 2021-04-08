@@ -39,6 +39,7 @@ def cretion_skins():
     #         skin_save = skin[skin_num]
     #         screen.blit(skin_save, [f, y])
     #         skin_num += 1
+
     #         price_save = price[price_num]
     #         screen.blit(price_save, [f - 30, y + 120])
     #         price_num += 1

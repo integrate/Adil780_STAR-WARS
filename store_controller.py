@@ -8,3 +8,6 @@ def store_events():
         if i.type == pygame.KEYDOWN:
             if i.key == pygame.K_ESCAPE:
                 menu.mode = "MENU"
+
+        if i.type == pygame.MOUSEMOTION:
+            a = i.pos
