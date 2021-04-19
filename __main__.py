@@ -1,4 +1,4 @@
-import pygame, tkinter,  time, settings, controller, view, model, menu, store_view, store_controller, store
+import pygame, tkinter,  time, settings, controller, view, model, menu, store_view, store_controller, store, store_model
 
 pygame.init()
 #pygame.mouse.set_visible(False)
@@ -6,8 +6,11 @@ view.create_screen()
 
 from tkinter import messagebox
 
-#messagebox.showwarning(message="Hello")
-#messagebox.askyesno(message="Hello")
+r = tkinter.Tk()
+r.withdraw()
+
+#messagebox.showwarning(message="You don't have enough coins!")
+#messagebox.askyesno(message="Are you sure?")
 
 
 

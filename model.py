@@ -20,7 +20,7 @@ speedy = 10
 
 
 platform_hp = 100
-coin = 0
+coin = 10000
 
 enemy = []
 bullets = []
@@ -146,6 +146,9 @@ def check_game():
 def restart():
     global platform_hp, coin
     platform_hp = 100
+
+
+
 
 
 

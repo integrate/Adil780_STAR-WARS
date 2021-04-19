@@ -10,14 +10,14 @@ letters = pygame.font.SysFont("arial", 40, True)
 
 
 
-for i in skins.skins:
-    rect = pygame.Rect(50, settings.SCREEN_WIDTH - 50, 110, 100)
-    skin1 = pygame.image.load(i["image"])
-    prices = i["price"]
-    pr = letters.render("Price: " + str(prices), True, [255, 0, 0])
-    price.append(pr)
-    skin1 = pygame.transform.scale(skin1, [100, 110])
-    skin.append(skin1)
+# for i in skins.skins:
+#     rect = pygame.Rect(50, settings.SCREEN_WIDTH - 50, 110, 100)
+#     skin1 = pygame.image.load(i["image"])
+#     prices = i["price"]
+#     pr = letters.render("Price: " + str(prices), True, [255, 0, 0])
+#     price.append(pr)
+#     skin1 = pygame.transform.scale(skin1, [100, 110])
+#     skin.append(skin1)
 
 
 
@@ -48,7 +48,8 @@ def cretion_skins():
         i.draw(screen)
 
 
-
+def change_skin(skin):
+    view.x_wing = skin
 
 
 
@@ -58,11 +59,5 @@ def create_store_screen():
     screen.fill([0, 0, 0])
     cretion_skins()
     create_coin()
-
-
-
-
-
-
 
     pygame.display.flip()

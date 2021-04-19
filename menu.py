@@ -2,6 +2,9 @@ import pygame, settings
 
 pygame.init()
 
+pygame.mouse.set_system_cursor(pygame.SYSTEM_CURSOR_HAND)
+pygame.mouse.set_system_cursor(pygame.SYSTEM_CURSOR_ARROW)
+
 
 #CONTROLLER
 
