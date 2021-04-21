@@ -20,7 +20,7 @@ speedy = 10
 
 
 platform_hp = 100
-coin = 10000
+coin = 1000
 
 enemy = []
 bullets = []

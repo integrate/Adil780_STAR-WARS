@@ -1,8 +1,13 @@
-import pygame, store_controller, store, skin, model, store_view, skins
+import pygame, model, store_view, utils
 
 pygame.init()
 
 def buy_skin(skin):
     if model.coin >= skin.price:
-        store_view.change_skin(skin.image)
+        if utils.ask_yes_no():
+            model.coin -= skin.price
+            store_view.change_skin(skin.image)
+    else:
+        utils.show_warning()
+
 

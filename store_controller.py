@@ -1,7 +1,6 @@
-import pygame, menu, store, tkinter, store_model
+import pygame, menu, store, store_model
 
 
-from tkinter import messagebox
 
 def store_events():
 
@@ -31,8 +30,8 @@ def store_events():
             for p in store.sk1n:
                 b = p.collide_possition(a)
                 if b:
-                    messagebox.askyesno(message="Are you sure?")
                     store_model.buy_skin(p)
+
 
 
 
