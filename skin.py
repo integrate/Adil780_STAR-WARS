@@ -16,11 +16,22 @@ class Skin():
         self.pr = letters.render("Price: " + str(self.price), True, [0, 255, 0])
         self.rect = pygame.Rect(self.posx, self.posy, 100, 110)
         self.rect_price = pygame.Rect(self.posx - 30, self.posy + 120, self.pr.get_width(), self.pr.get_height())
+        self.sold = False
+
 
     def draw(self, screen):
+        if self.sold:
+            self.bought = letters.render("BOUGHT", True, [0, 0, 255])
+            screen.blit(self.bought, [self.posx - 30, self.posy + 120])
+
+        else:
+            screen.blit(self.pr, [self.posx - 30, self.posy + 120])
+
+
+
+
         screen.blit(self.image, [self.posx, self.posy])
 
-        screen.blit(self.pr, [self.posx - 30, self.posy + 120])
         #pygame.draw.rect(screen, [255, 0, 0], self.rect, 2)
         #pygame.draw.rect(screen,[255, 0, 0], self.rect_price, 2)
 
@@ -30,3 +41,5 @@ class Skin():
 
         else:
             return False
+
+

@@ -9,47 +9,7 @@ skins = [
 
     },
     {
-        "image": "images/Skin2.png",
-        "price": 200
-
-    },
-    {
-        "image": "images/Skin2.png",
-        "price": 200
-    },
-    {
-        "image": "images/Skin2.png",
-        "price": 200
-
-    },
-    {
-        "image": "images/Skin2.png",
-        "price": 200
-    },
-
-    {
-
-        "image": "images/Skin2.png",
-        "price": 200
-    },
-    {
-
-        "image": "images/Skin2.png",
-        "price": 200
-    },
-
-    {
-
-        "image": "images/Skin2.png",
-        "price": 200
-    },
-
-    {
-        "image": "images/Skin2.png",
-        "price": 200
-    },
-    {
-        "image": "images/Skin2.png",
+        "image": "images/Skin3.gif",
         "price": 200
 
     }
