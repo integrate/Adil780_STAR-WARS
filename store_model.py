@@ -1,4 +1,4 @@
-import pygame, model, store_view, utils
+import pygame, model, store_view, utils, skins
 
 pygame.init()
 
@@ -16,6 +16,10 @@ def buy_skin(skin):
 
     else:
         utils.show_warning()
+
+def sold_skin0(skin):
+    if skin.price <= 0:
+        skin.sold = True
 
 
 

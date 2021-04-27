@@ -1,4 +1,4 @@
-import pygame, tkinter,  time, settings, controller, view, model, menu, store_view, store_controller, store, store_model
+import pygame, tkinter,  time, settings, controller, view, model, menu, store_view, store_controller
 
 pygame.init()
 #pygame.mouse.set_visible(False)

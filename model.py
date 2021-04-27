@@ -1,4 +1,4 @@
-import pygame, settings, random, view
+import pygame, settings, random, json
 
 pygame.init()
 
@@ -146,6 +146,10 @@ def check_game():
 def restart():
     global platform_hp, coin
     platform_hp = 100
+
+
+
+
 
 
 

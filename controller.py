@@ -1,4 +1,4 @@
-import pygame, model, menu
+import pygame, model, menu, json, view
 pygame.init()
 
 TIMER_ID_ENEMY = pygame.event.custom_type()
@@ -11,6 +11,7 @@ def events():
     t = pygame.event.get()
     for i in t:
         if i.type == pygame.QUIT:
+            view.save_game()
             exit()
 
         if i.type == pygame.MOUSEMOTION:

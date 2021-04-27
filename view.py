@@ -1,4 +1,4 @@
-import pygame, settings, model, time
+import pygame, settings, model, time, skins, json
 pygame.init()
 
 letters = pygame.font.SysFont("arial", 40, True)
@@ -8,7 +8,11 @@ bullet = pygame.image.load("images/bullet 2.png")
 bullet = pygame.transform.scale(bullet, [7, 30])
 meteorite = pygame.image.load("images/METEOR.png")
 meteorite = pygame.transform.scale(meteorite, [70, 70])
-x_wing = pygame.image.load("images/X-WING.png")
+
+x_wing = skins.skins[0]["image"]
+x_wing = pygame.image.load(x_wing)
+x_wing_id = skins.skins[0]["ID"]
+
 tie = pygame.image.load("images/TIE.png")
 tie = pygame.transform.scale(tie, [101, 110])
 tie = pygame.transform.rotate(tie, 180)
@@ -67,6 +71,17 @@ def create_coin():
 def game_over():
     go = letters.render("GAME OVER", True, [255, 0, 0])
     screen.blit(go, [settings.SCREEN_WIDTH/2, settings.SCREEN_HEIGHT/2])
+
+
+def save_game():
+    f = open("save.json", "w")
+    json.dump({"coin": model.coin, "SKIN_ID": x_wing_id}, f, indent=4)
+
+
+
+
+
+
 
 def drawing():
     global screen, bullet
