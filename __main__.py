@@ -1,8 +1,21 @@
-import pygame, tkinter,  time, settings, controller, view, model, menu, store_view, store_controller
+import pygame, tkinter,  time, json, controller, view, model, menu, store_view, store_controller, skins, os, store
 
 pygame.init()
+
+if os.path.exists("save.json"):
+    f = open("save.json", "r")
+    a = json.load(f)
+    model.coin = a["coin"]
+    view.x_wing = a["SKIN_ID"]
+    for i in store.sk1n:
+        if view.x_wing == i.id:
+            view.x_wing = i.image
+
+
+
 #pygame.mouse.set_visible(False)
 view.create_screen()
+
 
 from tkinter import messagebox
 

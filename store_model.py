@@ -1,4 +1,4 @@
-import pygame, model, store_view, utils, skins
+import pygame, model, store_view, utils, view
 
 pygame.init()
 
@@ -11,6 +11,7 @@ def buy_skin(skin):
         if utils.ask_yes_no(message="Are you sure?"):
             model.coin -= skin.price
             store_view.change_skin(skin.image)
+            view.x_wing_id = skin.id
             skin.sold = True
 
 

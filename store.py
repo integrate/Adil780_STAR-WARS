@@ -11,7 +11,7 @@ for y in range(50, settings.SCREEN_HEIGHT - 50, 250):
         if len(skins.skins) <= skin_num:
             break
         skin_save = skins.skins[skin_num]
-        sk1n.append(skin.Skin(f, y, skin_save["image"], skin_save["price"]))
+        sk1n.append(skin.Skin(f, y, skin_save["image"], skin_save["price"], skin_save["ID"]))
         skin_num += 1
 
 for i in sk1n:

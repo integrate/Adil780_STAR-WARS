@@ -7,7 +7,7 @@ letters = pygame.font.SysFont("arial", 40, True)
 
 
 class Skin():
-    def __init__(self, posx, posy, image, price):
+    def __init__(self, posx, posy, image, price, id):
         self.posx = posx
         self.posy = posy
         self.image = pygame.image.load(image)
@@ -17,6 +17,7 @@ class Skin():
         self.rect = pygame.Rect(self.posx, self.posy, 100, 110)
         self.rect_price = pygame.Rect(self.posx - 30, self.posy + 120, self.pr.get_width(), self.pr.get_height())
         self.sold = False
+        self.id = id
 
 
     def draw(self, screen):
