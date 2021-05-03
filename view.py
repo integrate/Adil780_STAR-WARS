@@ -1,4 +1,4 @@
-import pygame, settings, model, time, skins, json
+import pygame, settings, model, skin, skins, json, store
 pygame.init()
 
 letters = pygame.font.SysFont("arial", 40, True)
@@ -73,9 +73,15 @@ def game_over():
     screen.blit(go, [settings.SCREEN_WIDTH/2, settings.SCREEN_HEIGHT/2])
 
 
+
+
 def save_game():
     f = open("save.json", "w")
-    json.dump({"coin": model.coin, "SKIN_ID": x_wing_id}, f, indent=4)
+    skiN = []
+    for i in store.sk1n:
+        if i.sold:
+            skiN.append(i.id)
+    json.dump({"coin": model.coin, "SKIN_ID": x_wing_id, "bought_skins_id": skiN}, f, indent=4)
 
 
 

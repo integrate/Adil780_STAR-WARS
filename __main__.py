@@ -1,4 +1,4 @@
-import pygame, tkinter,  time, json, controller, view, model, menu, store_view, store_controller, skins, os, store
+import pygame, tkinter,  time, json, controller, view, model, menu, store_view, store_controller, skins, os, store, skin
 
 pygame.init()
 
@@ -7,6 +7,10 @@ if os.path.exists("save.json"):
     a = json.load(f)
     model.coin = a["coin"]
     view.x_wing = a["SKIN_ID"]
+    for i in store.sk1n:
+        if i.id in a["bought_skins_id"]:
+            i.sold = True
+    #store. = a["bought_skin_id"]
     for i in store.sk1n:
         if view.x_wing == i.id:
             view.x_wing = i.image

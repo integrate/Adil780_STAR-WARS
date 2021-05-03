@@ -4,6 +4,7 @@ pygame.init()
 sk1n = []
 
 
+
 skin_num = 0
 for y in range(50, settings.SCREEN_HEIGHT - 50, 250):
     for f in range(50, settings.SCREEN_WIDTH - 50, 180):
@@ -16,6 +17,9 @@ for y in range(50, settings.SCREEN_HEIGHT - 50, 250):
 
 for i in sk1n:
     store_model.sold_skin0(i)
+
+
+
 
 
 
