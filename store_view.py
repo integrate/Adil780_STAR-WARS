@@ -28,10 +28,10 @@ def change_skin(skin):
 
 
 
-
+screen = pygame.display.set_mode([settings.SCREEN_WIDTH, settings.SCREEN_HEIGHT])
 def create_store_screen():
     global screen
-    screen = pygame.display.set_mode([settings.SCREEN_WIDTH, settings.SCREEN_HEIGHT])
+
     screen.fill([0, 0, 0])
     cretion_skins()
     create_coin()
